@@ -1,4 +1,4 @@
-# Sudhanshu — Portfolio
+# Sudhanshu --- Portfolio
 
 A small multi-page portfolio built on top of the original glass-hero
 landing page: **Home** (the interactive reveal hero), **About**,
