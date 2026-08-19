@@ -51,6 +51,33 @@ body {
   background-size: cover;
 }
 
+@media (max-width: 768px) {
+  .hero-layer {
+    background-position: 65% center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    --hero-edge: 6vw;
+    font-size: clamp(2rem, 10vw, 5rem) !important;
+    line-height: 0.9;
+    letter-spacing: -0.07em;
+    top: 25% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-aside {
+    --hero-edge: 6vw;
+    font-size: clamp(2rem, 10vw, 5rem) !important;
+    line-height: 0.9;
+    letter-spacing: -0.07em;
+    top: 71% !important;
+  }
+}
+
 .base-layer {
   will-change: opacity, transform;
   opacity: 0;

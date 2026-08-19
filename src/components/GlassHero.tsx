@@ -116,13 +116,13 @@ export default function GlassHero() {
   return (
     <section ref={heroRef} className="hero" aria-label="Sudhanshu — introduction">
       <div
-        className="hero-layer base-layer"
-        style={{ backgroundImage: "url(/images/Base_image_desktop.png)" }}
+        className="hero-layer base-layer bg-[url('/images/Base_image_mobile.png')] md:bg-[url('/images/Base_image_desktop.png')]"
+        // style={{ backgroundImage: "url(/images/Base_image_desktop.png)" }}
         aria-hidden="true"
       />
       <div
-        className="hero-layer reveal-layer"
-        style={{ backgroundImage: "url(/images/Reveal_image_desktop.png)" }}
+        className="hero-layer reveal-layer bg-[url('/images/Reveal_image_mobile.png')] md:bg-[url('/images/Reveal_image_desktop.png')]"
+        // style={{ backgroundImage: "url(/images/Reveal_image_desktop.png)" }}
         aria-hidden="true"
       />
 
@@ -146,7 +146,7 @@ export default function GlassHero() {
       </div>
 
       <h1
-        className="absolute z-20 m-0 font-sans font-normal text-ink"
+        className="absolute z-20 m-0 font-sans font-normal text-ink hero-title"
         style={{
           top: "34%",
           left: EDGE,
@@ -186,14 +186,14 @@ export default function GlassHero() {
           } as CSSProperties
         }
       >
-        <p className="font-sans text-[1.05rem] leading-relaxed text-ink/80">
+        <p className="font-sans text-white text-xs md:text-[1.05rem] leading-relaxed md:text-ink/80">
           Full Stack Developer passionate about building fast, scalable, and
            modern web applications. Turning ideas into real-world digital solutions.
         </p>
-        <div className="mt-6 flex flex-wrap items-center gap-3">
+        <div className="mt-2 md:mt-6 flex flex-wrap items-center gap-2 md:gap-3">
           <Link
             to="/projects"
-            className="inline-flex min-h-11 items-center border border-ink/15 rounded-full bg-white px-6 font-sans text-[0.85rem] font-medium text-ink shadow-[0_1px_2px_rgba(11,18,32,0.08)] transition-transform hover:scale-[1.03]"
+            className="inline-flex min-h-11 items-center border border-ink/15 rounded-full bg-white px-6 font-sans text-xs md:text-[0.85rem] font-medium text-ink shadow-[0_1px_2px_rgba(11,18,32,0.08)] transition-transform hover:scale-[1.03]"
           >
             Explore my work
           </Link>
@@ -201,7 +201,7 @@ export default function GlassHero() {
             onClick={TOPMATE_URL}
             target="_blank"
             rel="noreferrer"
-            className="cursor-pointer inline-flex min-h-11 items-center rounded-full border border-ink/15 px-6 font-sans text-[0.85rem] font-medium text-ink transition-transform hover:scale-[1.03]"
+            className="cursor-pointer inline-flex min-h-11 items-center rounded-full bg-white border border-ink/15 px-6 font-sans text-xs md:text-[0.85rem] font-medium text-ink transition-transform hover:scale-[1.03]"
           >
             Let&rsquo;s talk
           </a>
@@ -210,7 +210,7 @@ export default function GlassHero() {
 
       <aside
         aria-label="Manifesto"
-        className="enter-up absolute z-20 text-right"
+        className="enter-up absolute z-20 text-right hero-aside"
         style={
           {
             right: EDGE,
@@ -219,7 +219,7 @@ export default function GlassHero() {
           } as CSSProperties
         }
       >
-        <p className="font-mono text-[0.7rem] uppercase leading-[1.7] tracking-[0.12em] text-ink/55">
+        <p className="font-mono text-[0.5rem] md:text-[0.7rem] uppercase leading-[1.7] tracking-[0.12em] text-white md:text-ink/55">
           Crafting digital
           <br />
           experiences
