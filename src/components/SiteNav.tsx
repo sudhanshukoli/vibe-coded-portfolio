@@ -1,3 +1,7 @@
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "motion/react";
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { EDGE, NAV_TOP, TOPMATE_URL } from "../lib/theme";
 
@@ -10,10 +14,13 @@ const NAV_LINKS = [
 ];
 
 export default function SiteNav() {
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="enter-down fixed inset-x-0 top-0 z-50 border-b border-ink/5 bg-mist/75 backdrop-blur-md">
       <nav
-        className="flex items-center justify-between"
+        className="flex gap-48 items-center md:justify-between"
         style={{
           paddingTop: NAV_TOP,
           paddingBottom: "1.1rem",
@@ -58,16 +65,41 @@ export default function SiteNav() {
           ))}
         </ul>
 
+        {/* Mobile Hamburger */}
+        <button className="text-2xl self-end text-black md:hidden" onClick={() => setMenuOpen(!menuOpen)} >
+            <FontAwesomeIcon  icon={menuOpen ? faXmark : faBars}  />
+        </button>
+
         <a
           onClick={TOPMATE_URL}
           target="_blank"
           rel="noreferrer"
-          className="cursor-pointer inline-flex min-h-11 items-center rounded-full bg-ink px-6 font-sans text-[0.85rem] font-medium text-white transition-transform hover:scale-[1.03]"
+          className="hidden cursor-pointer md:inline-flex min-h-11 items-center rounded-full bg-ink px-6 font-sans text-[0.85rem] font-medium text-white transition-transform hover:scale-[1.03]"
         >
           <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-glass" />
           Let&rsquo;s talk
         </a>
       </nav>
-    </header>
+
+        {/* mobile menu below */}
+        <motion.div initial={false}  animate={{ height: menuOpen ? "auto" : 0, opacity: menuOpen ? 1 : 0, }} className="md:hidden" >
+        <ul className="flex flex-col md:hidden items-center font-mono text-[0.72rem] uppercase tracking-[0.08em] text-ink/60">
+          {NAV_LINKS.map((link) => (
+            <li key={link.to} onClick={() => setMenuOpen(!menuOpen)}>
+              <NavLink
+                to={link.to}
+                className={({ isActive }) =>
+                  `inline-flex min-h-6 md:min-h-11 items-center transition-colors hover:text-ink ${
+                    isActive ? "text-ink" : ""
+                  }`
+                }
+              >
+                {link.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+        </motion.div>
+      </header>
   );
 }
