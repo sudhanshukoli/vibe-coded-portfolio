@@ -31,7 +31,6 @@ export default function SiteNav() {
           paddingRight: EDGE,
         }}
       >
-
         <div className="md:hidden"><BlobbleToggle  /></div>
 
         <Link
