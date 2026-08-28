@@ -1,7 +1,7 @@
 import { faSpider, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
-import { useToggleMode } from "../context/ModeToggle.jsx";
+import { useToggleMode } from "../context/ModeToggle.js";
 
 export default function BlobbleToggle() {
 

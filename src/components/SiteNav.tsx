@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useToggleMode } from "../context/ModeToggle.jsx";
+import { useToggleMode } from "../context/ModeToggle.js";
 import { EDGE, NAV_TOP } from "../lib/theme";
 import BlobbleToggle from "./BlobbleToggle";
 
@@ -85,7 +85,7 @@ export default function SiteNav() {
           Let&rsquo;s talk
         </a> */}
 
-        <div className="hidden md:flex font-sans text-[1.02rem] font-medium">Spidy-mode- <BlobbleToggle  /></div>
+        <div className="hidden md:flex font-sans text-[1.02rem] font-medium">Spidy-mode:&ensp;<BlobbleToggle /></div>
       </nav>
 
         {/* mobile menu below */}
