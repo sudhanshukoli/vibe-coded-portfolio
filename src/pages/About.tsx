@@ -1,5 +1,5 @@
 import PageShell from "../components/PageShell";
-import { useToggleMode } from "../context/ModeToggle.js";
+import { useToggleMode } from "../context/ModeToggle";
 import { languages, myValues, profile, skills } from "../data/resume";
 
 export default function About() {

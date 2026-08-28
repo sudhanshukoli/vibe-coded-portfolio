@@ -1,5 +1,5 @@
 import PageShell from "../components/PageShell";
-import { useToggleMode } from "../context/ModeToggle.js";
+import { useToggleMode } from "../context/ModeToggle";
 import { projects } from "../data/resume";
 
 export default function Projects() {

@@ -1,5 +1,5 @@
 import PageShell from "../components/PageShell";
-import { useToggleMode } from "../context/ModeToggle.js";
+import { useToggleMode } from "../context/ModeToggle";
 import { profile } from "../data/resume";
 import { TOPMATE_URL } from "../lib/theme";
 
