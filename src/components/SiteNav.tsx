@@ -3,7 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { EDGE, NAV_TOP, TOPMATE_URL } from "../lib/theme";
+import { useToggleMode } from "../context/ModeToggle.jsx";
+import { EDGE, NAV_TOP } from "../lib/theme";
+import BlobbleToggle from "./BlobbleToggle";
 
 const NAV_LINKS = [
   { label: "Home", to: "/" },
@@ -16,11 +18,12 @@ const NAV_LINKS = [
 export default function SiteNav() {
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const {isOn} = useToggleMode();
 
   return (
-    <header className="enter-down fixed inset-x-0 top-0 z-50 border-b border-ink/5 bg-mist/75 backdrop-blur-md">
+    <header className={`enter-down ${isOn ? "bg-[#EADDCA]" : "bg-mist/75" } fixed inset-x-0 top-0 z-50 border-b border-ink/5 backdrop-blur-md`}>
       <nav
-        className="flex gap-48 items-center md:justify-between"
+        className="flex justify-between items-center md:justify-between"
         style={{
           paddingTop: NAV_TOP,
           paddingBottom: "1.1rem",
@@ -28,10 +31,13 @@ export default function SiteNav() {
           paddingRight: EDGE,
         }}
       >
+
+        <div className="md:hidden"><BlobbleToggle  /></div>
+
         <Link
           to="/"
           aria-label="Sudhanshu — home"
-          className="flex items-center gap-3 focus-visible:outline-none"
+          className="flex items-center md:gap-3 focus-visible:outline-none"
         >
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
             <path
@@ -66,11 +72,11 @@ export default function SiteNav() {
         </ul>
 
         {/* Mobile Hamburger */}
-        <button className="text-2xl self-end text-black md:hidden" onClick={() => setMenuOpen(!menuOpen)} >
+        <button className="text-2xl self-end text-black md:hidden ml-3" onClick={() => setMenuOpen(!menuOpen)} >
             <FontAwesomeIcon  icon={menuOpen ? faXmark : faBars}  />
         </button>
 
-        <a
+        {/* <a
           onClick={TOPMATE_URL}
           target="_blank"
           rel="noreferrer"
@@ -78,7 +84,9 @@ export default function SiteNav() {
         >
           <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-glass" />
           Let&rsquo;s talk
-        </a>
+        </a> */}
+
+        <div className="hidden md:flex font-sans text-[1.02rem] font-medium">Spidy-mode- <BlobbleToggle  /></div>
       </nav>
 
         {/* mobile menu below */}

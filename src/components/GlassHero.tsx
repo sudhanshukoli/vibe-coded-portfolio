@@ -1,5 +1,6 @@
 import { useEffect, useRef, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
+import { useToggleMode } from "../context/ModeToggle.jsx";
 import { EDGE, TOPMATE_URL } from "../lib/theme";
 
 const DESKTOP_RADIUS = 235;
@@ -18,6 +19,7 @@ export default function GlassHero() {
   const isTouching = useRef(false);
   const frameId = useRef<number | null>(null);
   const reducedMotion = useRef(false);
+  const { isOn } = useToggleMode();
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -114,14 +116,16 @@ export default function GlassHero() {
   }, []);
 
   return (
-    <section ref={heroRef} className="hero" aria-label="Sudhanshu — introduction">
+    <section ref={heroRef} className="hero bg-[#EADDCA]" aria-label="Sudhanshu — introduction">
       <div
-        className="hero-layer base-layer bg-[url('/images/Base_image_mobile.png')] md:bg-[url('/images/Base_image_desktop.png')]"
+        className={`hero-layer base-layer ${isOn ? "bg-[url('/images/Spiderman_base_pic_mobile.png')]" : "bg-[url('/images/Base_image_mobile.png')]"} 
+          ${isOn ? "md:bg-[url('/images/Spiderman_base_pic.png')]" : "md:bg-[url('/images/Base_image_desktop.png')]" }`}
         // style={{ backgroundImage: "url(/images/Base_image_desktop.png)" }}
         aria-hidden="true"
       />
       <div
-        className="hero-layer reveal-layer bg-[url('/images/Reveal_image_mobile.png')] md:bg-[url('/images/Reveal_image_desktop.png')]"
+        className={`hero-layer reveal-layer ${isOn ? "bg-[url('/images/Spiderman_reveal_pic_mobile.png')]" : "bg-[url('/images/Base_image_mobile.png')]" }
+          ${isOn ? "md:bg-[url('/images/Spiderman_reveal_pic.png')]" : "md:bg-[url('/images/Reveal_image_desktop.png')]" }`}
         // style={{ backgroundImage: "url(/images/Reveal_image_desktop.png)" }}
         aria-hidden="true"
       />
@@ -168,10 +172,10 @@ export default function GlassHero() {
           Code.
         </span>
         <span
-          className="enter-up block overflow-hidden"
+          className={`enter-up block overflow-hidden ${isOn && "text-red-700"}`}
           style={{ "--enter-delay": "0.61s" } as CSSProperties}
         >
-          Create.
+          {isOn ? "Swing." : "Create."}
         </span>
       </h1>
 

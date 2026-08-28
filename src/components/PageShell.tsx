@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
+import { useToggleMode } from "../context/ModeToggle.jsx";
 
 export default function PageShell({
   eyebrow,
@@ -11,9 +12,12 @@ export default function PageShell({
   intro?: ReactNode;
   children: ReactNode;
 }) {
+
+  const {isOn} = useToggleMode();
+
   return (
     <div className="page relative min-h-dvh bg-mist">
-      <div className="tech-grid" aria-hidden="true">
+      <div className={`tech-grid ${isOn && "bg-[#EADDCA]"}`} aria-hidden="true">
         <span className="rule rule-v" style={{ left: "8.3333%" }} />
         <span className="rule rule-v" style={{ left: "91.6667%" }} />
         <span
@@ -22,7 +26,7 @@ export default function PageShell({
         />
       </div>
 
-      <main className="page-main relative z-10">
+      <main className={`page-main relative z-10 ${isOn && "bg-[#EADDCA]"}`}>
         <p
           className="enter-up font-mono text-[0.72rem] uppercase tracking-[0.14em] text-ink/50"
           style={{ "--enter-delay": "0.05s" } as CSSProperties}

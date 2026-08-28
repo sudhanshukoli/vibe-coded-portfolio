@@ -1,7 +1,11 @@
 import PageShell from "../components/PageShell";
+import { useToggleMode } from "../context/ModeToggle.jsx";
 import { projects } from "../data/resume";
 
 export default function Projects() {
+
+    const {isOn} = useToggleMode();
+
   return (
     <PageShell
       eyebrow="Selected work"
@@ -12,7 +16,7 @@ export default function Projects() {
         {projects.map((project, index) => (
           <article
             key={project.title}
-            className="group rounded-3xl border border-ink/8 bg-white p-8 transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-25px_rgba(11,18,32,0.35)] sm:p-10"
+            className={`group rounded-3xl border border-ink/8 ${isOn ? "bg-white/30" : "bg-white"} p-8 transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-25px_rgba(11,18,32,0.35)] sm:p-10`}
           >
             <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
               <div>

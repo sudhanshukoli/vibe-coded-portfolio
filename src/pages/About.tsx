@@ -1,10 +1,14 @@
 import PageShell from "../components/PageShell";
+import { useToggleMode } from "../context/ModeToggle.jsx";
 import { languages, myValues, profile, skills } from "../data/resume";
 
 export default function About() {
+
+    const {isOn} = useToggleMode();
+
   return (
     <PageShell eyebrow="About" title="The person behind the build.">
-      <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1.1fr_1fr]">
+      <div className={`grid grid-cols-1 gap-16 lg:grid-cols-[1.1fr_1fr] ${isOn && "bg-[#EADDCA]"}`}>
         {/* Left column — summary + competencies */}
         <div>
           <p className="font-sans text-[1.15rem] leading-relaxed text-ink/80">

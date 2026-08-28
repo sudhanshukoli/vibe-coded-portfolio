@@ -1,4 +1,5 @@
 import PageShell from "../components/PageShell";
+import { useToggleMode } from "../context/ModeToggle.jsx";
 import { profile } from "../data/resume";
 import { TOPMATE_URL } from "../lib/theme";
 
@@ -10,6 +11,9 @@ const CHANNELS = [
 ];
 
 export default function Contact() {
+
+  const {isOn} = useToggleMode();
+  
   return (
     <PageShell
       eyebrow="Contact"
@@ -49,7 +53,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-between rounded-3xl border border-ink/8 bg-white p-8 sm:p-10">
+        <div className={`flex flex-col justify-between rounded-3xl border border-ink/8 ${isOn ? "bg-white/30" : "bg-white" } p-8 sm:p-10`}>
           <div>
             <h2 className="font-sans text-[1.3rem] font-medium leading-snug text-ink">
               Prefer to just talk it through?
