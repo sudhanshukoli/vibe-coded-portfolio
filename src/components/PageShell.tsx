@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
-import { useToggleMode } from "../context/ModeToggle";
+import { useToggleMode } from "../context/ModeToggle.tsx";
 
 export default function PageShell({
   eyebrow,

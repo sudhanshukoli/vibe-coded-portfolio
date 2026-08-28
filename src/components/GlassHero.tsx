@@ -1,6 +1,6 @@
 import { useEffect, useRef, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { useToggleMode } from "../context/ModeToggle";
+import { useToggleMode } from "../context/ModeToggle.tsx";
 import { EDGE, TOPMATE_URL } from "../lib/theme";
 
 const DESKTOP_RADIUS = 235;

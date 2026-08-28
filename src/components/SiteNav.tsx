@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useToggleMode } from "../context/ModeToggle";
+import { useToggleMode } from "../context/ModeToggle.tsx";
 import { EDGE, NAV_TOP } from "../lib/theme";
 import BlobbleToggle from "./BlobbleToggle";
 

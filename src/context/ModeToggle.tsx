@@ -18,5 +18,11 @@ export function ToggleProvider({ children }:{children:ReactNode}) {
 }
 
 export function useToggleMode() {
-  return useContext(AppContext);
+  const context = useContext(AppContext);
+  
+  if (!context) {
+    throw new Error("useToggleMode must be used within a ToggleProvider");
+  }
+  
+  return context;
 }
