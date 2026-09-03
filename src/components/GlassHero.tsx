@@ -124,7 +124,7 @@ export default function GlassHero() {
         aria-hidden="true"
       />
       <div
-        className={`hero-layer reveal-layer ${isOn ? "bg-[url('/images/Spiderman_reveal_pic_mobile.png')]" : "bg-[url('/images/Base_image_mobile.png')]" }
+        className={`hero-layer reveal-layer ${isOn ? "bg-[url('/images/Spiderman_reveal_pic_mobile.png')]" : "bg-[url('/images/Reveal_image_mobile.png')]" }
           ${isOn ? "md:bg-[url('/images/Spiderman_reveal_pic.png')]" : "md:bg-[url('/images/Reveal_image_desktop.png')]" }`}
         // style={{ backgroundImage: "url(/images/Reveal_image_desktop.png)" }}
         aria-hidden="true"
